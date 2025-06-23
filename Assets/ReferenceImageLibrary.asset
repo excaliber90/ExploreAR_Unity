@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: ReferenceImageLibrary
+  m_EditorClassIdentifier: 
+  m_GuidLow: 4883318267023599118
+  m_GuidHigh: 12950842937832639158
+  m_DataStore:
+    m_Storage: []
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5063939694122229771
+      m_GuidHigh: 2310784955417443256
+    m_SerializedTextureGuid:
+      m_GuidLow: 7225931246756434043
+      m_GuidHigh: 8495953419613254298
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: Mercury
+    m_Texture: {fileID: 2800000, guid: 2e50107baa2f64479a3250249fb0e775, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5076800797883396826
+      m_GuidHigh: 10438152374184728454
+    m_SerializedTextureGuid:
+      m_GuidLow: 11879898751168077964
+      m_GuidHigh: 9155753887194260872
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: Venus
+    m_Texture: {fileID: 2800000, guid: c6fae08ce0f8a4dd88a51db1a6c50f7f, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5378634987015695875
+      m_GuidHigh: 1338141977096335013
+    m_SerializedTextureGuid:
+      m_GuidLow: 1466041224207412474
+      m_GuidHigh: 17906789333106005592
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: Earth
+    m_Texture: {fileID: 2800000, guid: daf62cfa6cb914585896893306b281f8, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5606346130320180002
+      m_GuidHigh: 16765106408182609046
+    m_SerializedTextureGuid:
+      m_GuidLow: 4962565748987934128
+      m_GuidHigh: 9202358203051227608
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: Mars
+    m_Texture: {fileID: 2800000, guid: 82f235b0934144ded839c58c0758b57f, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5556942060800024606
+      m_GuidHigh: 16242334668505793179
+    m_SerializedTextureGuid:
+      m_GuidLow: 17633391791346562154
+      m_GuidHigh: 12356378378972554361
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: Jupiter
+    m_Texture: {fileID: 2800000, guid: 9480346a6468f4b679e4f934abac7aab, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5085837519345869211
+      m_GuidHigh: 691048508763495845
+    m_SerializedTextureGuid:
+      m_GuidLow: 14177500788174214754
+      m_GuidHigh: 10861592133009085963
+    m_Size: {x: 0.59, y: 0.8745882}
+    m_SpecifySize: 1
+    m_Name: Uno
+    m_Texture: {fileID: 2800000, guid: e9f1d66299d9c4c00b162f6f7f20bc96, type: 3}
