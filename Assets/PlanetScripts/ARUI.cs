@@ -71,10 +71,10 @@ public class ARUI : MonoBehaviour
     void displayAndPlayInfo()
     {
         if (currentPlanet == null) return;
-
+        /*
         // Hide Go Back button by default
         if (GetbackButton != null)
-            GetbackButton.gameObject.SetActive(false);
+            GetbackButton.gameObject.SetActive(false); */
 
         // Show text
         if (infoPointer < currentPlanet.descriptions.Count)
@@ -91,10 +91,10 @@ public class ARUI : MonoBehaviour
         }
         
         
-            if (infoPointer == currentPlanet.audioClips.Count - 1)
+            /*if (infoPointer == currentPlanet.audioClips.Count - 1)
             {
                 StartCoroutine(ShowGetbackButtonWhenAudioEnds());
-            }
+            }*/
         
         // Show image
        /* if (infoPointer < currentPlanet.images.Count)
@@ -102,7 +102,7 @@ public class ARUI : MonoBehaviour
         else
             rawImage.texture = null;*/
     }
-     IEnumerator ShowGetbackButtonWhenAudioEnds()
+     /*IEnumerator ShowGetbackButtonWhenAudioEnds()
     {
         while (audio.isPlaying)
         {
@@ -111,7 +111,7 @@ public class ARUI : MonoBehaviour
 
         if (GetbackButton != null)
             GetbackButton.gameObject.SetActive(true);
-    }
+    }*/
 
 
 
@@ -139,6 +139,9 @@ public void nextInfo()
     public void displayCanvas()
     {
         canvas.enabled = true;
+        if(GetbackButton !=null){
+            GetbackButton.gameObject.SetActive(true);
+        }
     }
 
     public void hideCanvas()
