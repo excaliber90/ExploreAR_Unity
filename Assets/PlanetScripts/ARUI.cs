@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEditor;
 
 
 public class ARUI : MonoBehaviour
@@ -10,6 +11,7 @@ public class ARUI : MonoBehaviour
     public Canvas canvas;
     public TMP_Text infoBox;
     public RawImage rawImage;
+    public Button GetbackButton;
 
     private AudioSource audio;
     private PlanetInfo currentPlanet;
@@ -22,6 +24,9 @@ public class ARUI : MonoBehaviour
     {
         audio = GetComponent<AudioSource>();
         canvas.enabled = false;
+        if (GetbackButton != null) {
+            GetbackButton.gameObject.SetActive(false); //Hide Go back buttton
+        }
     }
 
     void Update()
@@ -67,6 +72,10 @@ public class ARUI : MonoBehaviour
     {
         if (currentPlanet == null) return;
 
+        // Hide Go Back button by default
+        if (GetbackButton != null)
+            GetbackButton.gameObject.SetActive(false);
+
         // Show text
         if (infoPointer < currentPlanet.descriptions.Count)
             infoBox.text = currentPlanet.descriptions[infoPointer];
@@ -80,23 +89,42 @@ public class ARUI : MonoBehaviour
             audio.clip = currentPlanet.audioClips[infoPointer];
             audio.Play();
         }
-
-        /*// Show image
-       if (infoPointer < currentPlanet.images.Count)
+        
+        
+            if (infoPointer == currentPlanet.audioClips.Count - 1)
+            {
+                StartCoroutine(ShowGetbackButtonWhenAudioEnds());
+            }
+        
+        // Show image
+       /* if (infoPointer < currentPlanet.images.Count)
             rawImage.texture = currentPlanet.images[infoPointer];
         else
             rawImage.texture = null;*/
     }
-
-    public void nextInfo()
+     IEnumerator ShowGetbackButtonWhenAudioEnds()
     {
-        if (currentPlanet == null) return;
-        if (infoPointer + 1 < currentPlanet.descriptions.Count)
+        while (audio.isPlaying)
         {
-            infoPointer++;
-            displayAndPlayInfo();
+            yield return null;
         }
+
+        if (GetbackButton != null)
+            GetbackButton.gameObject.SetActive(true);
     }
+
+
+
+
+public void nextInfo()
+{
+    if (currentPlanet == null) return;
+    if (infoPointer + 1 < currentPlanet.descriptions.Count)
+    {
+        infoPointer++;
+        displayAndPlayInfo();
+    }
+}
 
     public void lastInfo()
     {
@@ -114,8 +142,13 @@ public class ARUI : MonoBehaviour
     }
 
     public void hideCanvas()
-    {
-        canvas.enabled = false;
-        audio.Stop();
+{
+    canvas.enabled = false;
+    audio.Stop();
+
+    if (GetbackButton != null) {
+        GetbackButton.gameObject.SetActive(false);
+            
+        }
     }
 }

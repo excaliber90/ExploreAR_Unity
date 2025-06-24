@@ -89,3 +89,7 @@ crashlytics-build.properties
 
 # VS Code settings folder
 .vscode/
+
+#Firebase Authentication
+Assets/StreamingAssets/*.json
+

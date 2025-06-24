@@ -128,3 +128,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 735b6c368ab7f458c8903d2bac9b3742, type: 3}
   - {fileID: 8300000, guid: 63ebe1eed66fb493a88b47886c27b2ec, type: 3}
   - {fileID: 8300000, guid: 6e7e387091fc442d7956d6d21a965e16, type: 3}
+  images:
+  - {fileID: 2800000, guid: e9f1d66299d9c4c00b162f6f7f20bc96, type: 3}

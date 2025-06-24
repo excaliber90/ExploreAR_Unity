@@ -7,5 +7,5 @@ public class PlanetInfo : MonoBehaviour
     public string planetName;
     public List<string> descriptions;
     public List<AudioClip> audioClips;
-    /*public List<Texture2D> images;*/
+    public List<Texture2D> images;
 }
