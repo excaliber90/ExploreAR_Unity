@@ -40,13 +40,12 @@ public class ARTouch : MonoBehaviour
                     infoBox.text="Mars \n Let's go visit! ";
                 }
                  if (hit.transform.tag == "earth")
-                {/*
-                    Vector3 pos = hit.point;
+                {
+                  /*  Vector3 pos = hit.point;
                     pos.z += 0.25f;
                     pos.y += 0.25f;
-                    Instantiate(earthPopup, pos, transform.rotation);*/
-
-                    infoBox.text="Earth \n Mostly Harmless!";
+                    Instantiate(earthPopup, pos, transform.rotation);
+                    infoBox.text="Earth \n Mostly Harmless!";*/
                 }
 
                 if (hit.transform.tag == "frogger")

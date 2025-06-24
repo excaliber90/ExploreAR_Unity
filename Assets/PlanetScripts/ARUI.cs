@@ -23,7 +23,7 @@ public class ARUI : MonoBehaviour
         audio = GetComponent<AudioSource>();
         canvas.enabled = false;
         /*if (GetbackButton != null) {
-            GetbackButton.gameObject.SetActive(false); //Hide Go back button 
+            GetbackButton.gameObject.SetActive(false); //Hide Go back button initially
         }*/
     }
 
