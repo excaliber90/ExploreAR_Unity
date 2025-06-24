@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using UnityEditor;
-
 
 public class ARUI : MonoBehaviour
 {
@@ -24,9 +22,9 @@ public class ARUI : MonoBehaviour
     {
         audio = GetComponent<AudioSource>();
         canvas.enabled = false;
-        if (GetbackButton != null) {
-            GetbackButton.gameObject.SetActive(false); //Hide Go back buttton
-        }
+        /*if (GetbackButton != null) {
+            GetbackButton.gameObject.SetActive(false); //Hide Go back button 
+        }*/
     }
 
     void Update()
@@ -71,10 +69,12 @@ public class ARUI : MonoBehaviour
     void displayAndPlayInfo()
     {
         if (currentPlanet == null) return;
-        /*
+
         // Hide Go Back button by default
-        if (GetbackButton != null)
-            GetbackButton.gameObject.SetActive(false); */
+        if (infoPointer == 0 && GetbackButton != null)
+        {
+            GetbackButton.gameObject.SetActive(false);
+        }
 
         // Show text
         if (infoPointer < currentPlanet.descriptions.Count)
@@ -89,29 +89,15 @@ public class ARUI : MonoBehaviour
             audio.clip = currentPlanet.audioClips[infoPointer];
             audio.Play();
         }
-        
-        
-            /*if (infoPointer == currentPlanet.audioClips.Count - 1)
-            {
-                StartCoroutine(ShowGetbackButtonWhenAudioEnds());
-            }*/
-        
+     
+            
         // Show image
        /* if (infoPointer < currentPlanet.images.Count)
             rawImage.texture = currentPlanet.images[infoPointer];
         else
             rawImage.texture = null;*/
     }
-     /*IEnumerator ShowGetbackButtonWhenAudioEnds()
-    {
-        while (audio.isPlaying)
-        {
-            yield return null;
-        }
-
-        if (GetbackButton != null)
-            GetbackButton.gameObject.SetActive(true);
-    }*/
+    
 
 
 
@@ -119,10 +105,14 @@ public class ARUI : MonoBehaviour
 public void nextInfo()
 {
     if (currentPlanet == null) return;
-    if (infoPointer + 1 < currentPlanet.descriptions.Count)
-    {
-        infoPointer++;
-        displayAndPlayInfo();
+        if (infoPointer + 1 < currentPlanet.descriptions.Count)
+        {
+            infoPointer++;
+            displayAndPlayInfo();
+
+            if (infoPointer >= 1 && GetbackButton != null) {
+                GetbackButton.gameObject.SetActive(true);
+            }
     }
 }
 
@@ -133,13 +123,16 @@ public void nextInfo()
         {
             infoPointer--;
             displayAndPlayInfo();
+            if (infoPointer == 0 && GetbackButton != null){
+                GetbackButton.gameObject.SetActive(false);
+            }
         }
     }
 
     public void displayCanvas()
     {
         canvas.enabled = true;
-        if(GetbackButton !=null){
+        if(infoPointer >0 && GetbackButton !=null){
             GetbackButton.gameObject.SetActive(true);
         }
     }
