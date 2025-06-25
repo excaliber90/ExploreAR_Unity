@@ -172,12 +172,13 @@ IEnumerator HideQuizAfterDelay(float delay)
 public void nextInfo()
 {
     if (currentPlanet == null) return;
-        if (infoPointer + 1 < currentPlanet.descriptions.Count)
+        if (infoPointer + 1 <= currentPlanet.descriptions.Count)
         {
             infoPointer++;
             displayAndPlayInfo();
 
-            if (infoPointer >= 1 && GetbackButton != null) {
+            if (infoPointer >= 1 && GetbackButton != null)
+            {
                 GetbackButton.gameObject.SetActive(true);
             }
     }
