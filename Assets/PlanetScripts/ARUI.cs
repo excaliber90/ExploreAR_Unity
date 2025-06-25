@@ -15,6 +15,20 @@ public class ARUI : MonoBehaviour
     private PlanetInfo currentPlanet;
     private Transform scaledPlanet;
     private Vector3 originalScale;
+    public GameObject quizPanel;
+    public TMP_Text quizQuestion;
+    public Button[] answerButtons;
+    public TMP_Text feedbackText;
+
+    [System.Serializable]
+    public class QuizData
+    {
+    public string question;
+        public string[] options;
+    public int correctAnswerIndex;
+    }
+
+private Dictionary<string, QuizData> quizDictionary = new Dictionary<string, QuizData>();
 
     private int infoPointer = 0;
 
@@ -25,7 +39,57 @@ public class ARUI : MonoBehaviour
         /*if (GetbackButton != null) {
             GetbackButton.gameObject.SetActive(false); //Hide Go back button initially
         }*/
+         quizDictionary.Add("Earth", new QuizData {
+        question = "Which planet supports life?",
+        options = new string[] { "Mars", "Venus", "Earth" },
+        correctAnswerIndex = 2
+    });
+
+    quizDictionary.Add("Mars", new QuizData {
+        question = "Which planet is called the Red Planet?",
+        options = new string[] { "Earth", "Jupiter", "Mars" },
+        correctAnswerIndex = 2
+    });
     }
+
+    void ShowQuiz(string planetName)
+    {
+        if (!quizDictionary.ContainsKey(planetName)) return;
+
+        QuizData quiz = quizDictionary[planetName];
+        quizPanel.SetActive(true);
+        quizQuestion.text = quiz.question;
+        feedbackText.text = "";
+
+        for (int i = 0; i < answerButtons.Length; i++)
+        {
+            int index = i; // Needed to capture button index
+            answerButtons[i].GetComponentInChildren<TMP_Text>().text = quiz.options[i];
+            answerButtons[i].onClick.RemoveAllListeners();
+            answerButtons[i].onClick.AddListener(() => CheckAnswer(index, quiz.correctAnswerIndex));
+        }
+    }
+
+void CheckAnswer(int selectedIndex, int correctIndex)
+{
+    if (selectedIndex == correctIndex)
+    {
+        feedbackText.text = "Correct!";
+        feedbackText.color = Color.green;
+        StartCoroutine(HideQuizAfterDelay(2f));
+    }
+    else
+    {
+        feedbackText.text = "Try again!";
+        feedbackText.color = Color.red;
+    }
+}
+
+IEnumerator HideQuizAfterDelay(float delay)
+{
+    yield return new WaitForSeconds(delay);
+    quizPanel.SetActive(false);
+}
 
     void Update()
     {
@@ -80,7 +144,10 @@ public class ARUI : MonoBehaviour
         if (infoPointer < currentPlanet.descriptions.Count)
             infoBox.text = currentPlanet.descriptions[infoPointer];
         else
+        {
             infoBox.text = "";
+            ShowQuiz(currentPlanet.name);
+        }
 
         // Play audio
         if (infoPointer < currentPlanet.audioClips.Count)
