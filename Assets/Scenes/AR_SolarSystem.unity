@@ -2003,6 +2003,7 @@ MonoBehaviour:
   - {fileID: 8855519127102832957, guid: 396390f36ed984511a92e63497813104, type: 3}
   - {fileID: 8060681839146636781, guid: cc477eb2a43ea48b5ba66eb7143d4f5e, type: 3}
   - {fileID: 9152765307356998024, guid: 2031b94e8545e465aa2344e515f1fbab, type: 3}
+  - {fileID: 5608519044570725299, guid: 3706e44a0b80249018048f67672f5870, type: 3}
 --- !u!4 &753696753
 Transform:
   m_ObjectHideFlags: 0
