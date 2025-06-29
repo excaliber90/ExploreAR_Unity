@@ -164,15 +164,15 @@ IEnumerator HideQuizAfterDelay(float delay)
         else
             rawImage.texture = null;*/
     }
-    
 
 
 
 
-public void nextInfo()
-{
-    if (currentPlanet == null) return;
-        if (infoPointer + 1 <= currentPlanet.descriptions.Count)
+
+    public void nextInfo()
+    {
+        if (currentPlanet == null) return;
+        if (infoPointer <= currentPlanet.descriptions.Count)
         {
             infoPointer++;
             displayAndPlayInfo();
@@ -181,6 +181,12 @@ public void nextInfo()
             {
                 GetbackButton.gameObject.SetActive(true);
             }
+        }
+        else if (infoPointer == currentPlanet.descriptions.Count)
+        {
+            //Increment one more step to trigger quiz showing
+            infoPointer++;
+            displayAndPlayInfo();
     }
 }
 
