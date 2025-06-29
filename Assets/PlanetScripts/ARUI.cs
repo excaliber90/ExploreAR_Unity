@@ -133,6 +133,7 @@ IEnumerator HideQuizAfterDelay(float delay)
     void displayAndPlayInfo()
     {
         if (currentPlanet == null) return;
+        Debug.Log("InfoPointer: " + infoPointer + " / Total: " + currentPlanet.descriptions.Count);
 
         // Hide Go Back button by default
         if (infoPointer == 0 && GetbackButton != null)
@@ -142,10 +143,13 @@ IEnumerator HideQuizAfterDelay(float delay)
 
         // Show text
         if (infoPointer < currentPlanet.descriptions.Count)
+        {
             infoBox.text = currentPlanet.descriptions[infoPointer];
+        }
         else
         {
             infoBox.text = "";
+            Debug.Log("Triggering Quiz for: " + currentPlanet.name);
             ShowQuiz(currentPlanet.name);
         }
 
@@ -167,13 +171,10 @@ IEnumerator HideQuizAfterDelay(float delay)
 
 
 
-
-
     public void nextInfo()
     {
         if (currentPlanet == null) return;
-        if (infoPointer <= currentPlanet.descriptions.Count)
-        {
+        
             infoPointer++;
             displayAndPlayInfo();
 
@@ -181,13 +182,6 @@ IEnumerator HideQuizAfterDelay(float delay)
             {
                 GetbackButton.gameObject.SetActive(true);
             }
-        }
-        else if (infoPointer == currentPlanet.descriptions.Count)
-        {
-            //Increment one more step to trigger quiz showing
-            infoPointer++;
-            displayAndPlayInfo();
-    }
 }
 
     public void lastInfo()
