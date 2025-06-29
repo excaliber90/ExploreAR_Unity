@@ -39,11 +39,18 @@ private Dictionary<string, QuizData> quizDictionary = new Dictionary<string, Qui
         /*if (GetbackButton != null) {
             GetbackButton.gameObject.SetActive(false); //Hide Go back button initially
         }*/
-         quizDictionary.Add("Earth", new QuizData {
-        question = "Which planet supports life?",
-        options = new string[] { "Mars", "Venus", "Earth" },
-        correctAnswerIndex = 2
-    });
+    quizDictionary.Add("Earth", new QuizData {
+    question = "Which planet supports life?",
+    options = new string[] { "Mars", "Venus", "Earth" },
+    correctAnswerIndex = 2
+});
+
+quizDictionary.Add("Mars", new QuizData {
+    question = "Which planet is called the Red Planet?",
+    options = new string[] { "Earth", "Jupiter", "Mars" },
+    correctAnswerIndex = 2
+});
+
 
     quizDictionary.Add("Mars", new QuizData {
         question = "Which planet is called the Red Planet?",
@@ -54,7 +61,13 @@ private Dictionary<string, QuizData> quizDictionary = new Dictionary<string, Qui
 
     void ShowQuiz(string planetName)
     {
-        if (!quizDictionary.ContainsKey(planetName)) return;
+         planetName = planetName.Trim().ToLower();
+        if (!quizDictionary.ContainsKey(planetName)) 
+        {
+        Debug.LogWarning("No quiz found for planet: " + planetName);
+        return;
+    }
+
 
         QuizData quiz = quizDictionary[planetName];
         quizPanel.SetActive(true);
@@ -146,12 +159,18 @@ IEnumerator HideQuizAfterDelay(float delay)
         {
             infoBox.text = currentPlanet.descriptions[infoPointer];
         }
-        else
+        else if (infoPointer == currentPlanet.descriptions.Count)
         {
-            infoBox.text = "";
-            Debug.Log("Triggering Quiz for: " + currentPlanet.name);
-            ShowQuiz(currentPlanet.name);
+        infoBox.text = "";
+        ShowQuiz(currentPlanet.name.Trim().ToLower());
         }
+
+         else
+    {
+        // Stop further increment
+        infoPointer = currentPlanet.descriptions.Count;
+    }
+
 
         // Play audio
         if (infoPointer < currentPlanet.audioClips.Count)
