@@ -65,11 +65,11 @@ public class ARTouch : MonoBehaviour
                     Destroy(hit.transform.gameObject);
                 }
 
-
+                /*
                 if (hit.transform.tag == "FroggerVid")
                 {
                     Destroy(hit.transform.gameObject);
-                }
+                }*/
 
             }
         }

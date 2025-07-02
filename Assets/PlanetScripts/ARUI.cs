@@ -181,7 +181,7 @@ IEnumerator HideQuizAfterDelay(float delay)
         }
      
             
-        // Show image
+        // Shows image
        /* if (infoPointer < currentPlanet.images.Count)
             rawImage.texture = currentPlanet.images[infoPointer];
         else

@@ -14,8 +14,8 @@ public class UIandSound : MonoBehaviour
 
     AudioSource audio;
 
-    string UIState = "void"; //starting point
-    int infoID = 1; //pointer to info text
+    string UIState = "void"; 
+    int infoID = 1; 
 
 
     string marsText1 = "Mars, often called the \"Red Planet,\"";
