@@ -18,9 +18,8 @@ public class UIandSound : MonoBehaviour
     int infoID = 1; 
 
 
-    string marsText1 = "Mars, often called the \"Red Planet,\"";
-    string marsText2 = "It is Earth's neighbor and has a cold, \n" 
-                        +"dry surface covered in iron oxide, giving it a reddish appearance. ";
+    string marsText1 = "Mars";
+    string marsText2 = "It is Earth's neighbor and has a cold,";
     string marsText3 = "Though not hospitable like Earth.";
      string marsText4 = "";
 
