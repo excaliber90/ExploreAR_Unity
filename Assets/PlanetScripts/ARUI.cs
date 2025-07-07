@@ -39,7 +39,7 @@ private Dictionary<string, QuizData> quizDictionary = new Dictionary<string, Qui
         /*if (GetbackButton != null) {
             GetbackButton.gameObject.SetActive(false); //Hide Go back button initially
         }*/
-    quizDictionary.Add("earth", new QuizData {
+    quizDictionary.Add("Earth", new QuizData {
     question = "Which planet supports life?",
     options = new string[] { "Mars", "Venus", "Earth" },
     correctAnswerIndex = 2
