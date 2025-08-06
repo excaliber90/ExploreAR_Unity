@@ -186,7 +186,8 @@ public class Controller : MonoBehaviour
                 showNotificationMessage("Success", "Account Successfully Created!");
 
                 // Optional: Load next scene here
-                SceneManager.LoadScene("Main_Menu");
+                OpenloginPanel();
+
             });
         }
     }
