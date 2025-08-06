@@ -10,6 +10,9 @@ public class ARUI : MonoBehaviour
     public TMP_Text infoBox;
     public RawImage rawImage;
     public Button GetbackButton;
+    public Button NextButton;
+
+    
 
     private AudioSource audio;
     private PlanetInfo currentPlanet;
@@ -20,15 +23,9 @@ public class ARUI : MonoBehaviour
     public Button[] answerButtons;
     public TMP_Text feedbackText;
 
-    [System.Serializable]
-    public class QuizData
-    {
-    public string question;
-        public string[] options;
-    public int correctAnswerIndex;
-    }
+    public List<QuizData> quizDataAssets;  // Editable from Inspector
 
-private Dictionary<string, QuizData> quizDictionary = new Dictionary<string, QuizData>();
+    private Dictionary<string, QuizData> quizDictionary = new Dictionary<string, QuizData>();
 
     private int infoPointer = 0;
 
@@ -36,38 +33,26 @@ private Dictionary<string, QuizData> quizDictionary = new Dictionary<string, Qui
     {
         audio = GetComponent<AudioSource>();
         canvas.enabled = false;
-        /*if (GetbackButton != null) {
-            GetbackButton.gameObject.SetActive(false); //Hide Go back button initially
-        }*/
-    quizDictionary.Add("Earth", new QuizData {
-    question = "Which planet supports life?",
-    options = new string[] { "Mars", "Venus", "Earth" },
-    correctAnswerIndex = 2
-});
+        quizPanel.SetActive(false);
 
-quizDictionary.Add("Mars", new QuizData {
-    question = "Which planet is called the Red Planet?",
-    options = new string[] { "Earth", "Jupiter", "Mars" },
-    correctAnswerIndex = 2
-});
-
-
-    quizDictionary.Add("Mars", new QuizData {
-        question = "Which planet is called the Red Planet?",
-        options = new string[] { "Earth", "Jupiter", "Mars" },
-        correctAnswerIndex = 2
-    });
+        // Populate Dictionary from List
+        foreach (var quiz in quizDataAssets)
+        {
+            string key = quiz.planetName.Trim().ToLower();
+            if (!quizDictionary.ContainsKey(key))
+                quizDictionary.Add(key, quiz);
+        }
     }
 
     void ShowQuiz(string planetName)
     {
-         planetName = planetName.Trim().ToLower();
-        if (!quizDictionary.ContainsKey(planetName)) 
-        {
-        Debug.LogWarning("No quiz found for planet: " + planetName);
-        return;
-    }
+        planetName = planetName.Trim().ToLower();
 
+        if (!quizDictionary.ContainsKey(planetName))
+        {
+            Debug.LogWarning("No quiz found for planet: " + planetName);
+            return;
+        }
 
         QuizData quiz = quizDictionary[planetName];
         quizPanel.SetActive(true);
@@ -76,27 +61,37 @@ quizDictionary.Add("Mars", new QuizData {
 
         for (int i = 0; i < answerButtons.Length; i++)
         {
-            int index = i; // Needed to capture button index
-            answerButtons[i].GetComponentInChildren<TMP_Text>().text = quiz.options[i];
-            answerButtons[i].onClick.RemoveAllListeners();
-            answerButtons[i].onClick.AddListener(() => CheckAnswer(index, quiz.correctAnswerIndex));
+            // Needed to capture button index
+            if (i < quiz.options.Length)
+            {
+                answerButtons[i].gameObject.SetActive(true);
+                answerButtons[i].GetComponentInChildren<TMP_Text>().text = quiz.options[i];
+                int index = i;
+                answerButtons[i].onClick.RemoveAllListeners();
+                answerButtons[i].onClick.AddListener(() => CheckAnswer(index, quiz.correctAnswerIndex));
+            }
+            else
+            {
+                answerButtons[i].gameObject.SetActive(false);
+            }
+        }
+    } 
+
+    void CheckAnswer(int selectedIndex, int correctIndex)
+    {
+        if (selectedIndex == correctIndex)
+        {
+            feedbackText.text = "Correct!";
+            feedbackText.color = Color.green;
+            StartCoroutine(HideQuizAfterDelay(2f));
+        }
+        else
+        {
+            feedbackText.text = "Try again!";
+            feedbackText.color = Color.red;
         }
     }
 
-void CheckAnswer(int selectedIndex, int correctIndex)
-{
-    if (selectedIndex == correctIndex)
-    {
-        feedbackText.text = "Correct!";
-        feedbackText.color = Color.green;
-        StartCoroutine(HideQuizAfterDelay(2f));
-    }
-    else
-    {
-        feedbackText.text = "Try again!";
-        feedbackText.color = Color.red;
-    }
-}
 
 IEnumerator HideQuizAfterDelay(float delay)
 {
@@ -153,27 +148,41 @@ IEnumerator HideQuizAfterDelay(float delay)
         {
             GetbackButton.gameObject.SetActive(false);
         }
+        else if (GetbackButton != null)
+        {
+            GetbackButton.gameObject.SetActive(true);
+        }
 
-        // Show text
+           // Check if NextButton should be shown or hidden
+    if (infoPointer >= currentPlanet.descriptions.Count - 1)
+    {
+        if (NextButton != null)
+            NextButton.gameObject.SetActive(false); // Hide Next at last info
+    }
+    else
+    {
+        if (NextButton != null)
+            NextButton.gameObject.SetActive(true); // Show Next if not at last
+    }
+
+
+        // Show Info Text
         if (infoPointer < currentPlanet.descriptions.Count)
         {
             infoBox.text = currentPlanet.descriptions[infoPointer];
         }
         else if (infoPointer == currentPlanet.descriptions.Count)
         {
-        infoBox.text = "";
-        ShowQuiz(currentPlanet.name.Trim().ToLower());
+            infoBox.text = "";
+            ShowQuiz(currentPlanet.name.Trim().ToLower());
+            if (NextButton != null)
+            NextButton.gameObject.SetActive(false); // Hide Next during quiz
+
+            return; 
         }
 
-         else
-    {
-        // Stop further increment
-        infoPointer = currentPlanet.descriptions.Count;
-    }
-
-
         // Play audio
-        if (infoPointer < currentPlanet.audioClips.Count)
+        if (infoPointer < currentPlanet.audioClips.Count && infoPointer<currentPlanet.descriptions.Count)
         {
             audio.Stop();
             audio.clip = currentPlanet.audioClips[infoPointer];
@@ -193,7 +202,8 @@ IEnumerator HideQuizAfterDelay(float delay)
     public void nextInfo()
     {
         if (currentPlanet == null) return;
-        
+        if (infoPointer < currentPlanet.descriptions.Count) {
+
             infoPointer++;
             displayAndPlayInfo();
 
@@ -201,7 +211,8 @@ IEnumerator HideQuizAfterDelay(float delay)
             {
                 GetbackButton.gameObject.SetActive(true);
             }
-}
+        }
+    }
 
     public void lastInfo()
     {
