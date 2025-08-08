@@ -18,14 +18,6 @@ public class ARUI : MonoBehaviour
     private PlanetInfo currentPlanet;
     private Transform scaledPlanet;
     private Vector3 originalScale;
-    public GameObject quizPanel;
-    public TMP_Text quizQuestion;
-    public Button[] answerButtons;
-    public TMP_Text feedbackText;
-
-    public List<QuizData> quizDataAssets;  // Editable from Inspector
-
-    private Dictionary<string, QuizData> quizDictionary = new Dictionary<string, QuizData>();
 
     private int infoPointer = 0;
 
@@ -33,72 +25,7 @@ public class ARUI : MonoBehaviour
     {
         audio = GetComponent<AudioSource>();
         canvas.enabled = false;
-        quizPanel.SetActive(false);
-
-        // Populate Dictionary from List
-        foreach (var quiz in quizDataAssets)
-        {
-            string key = quiz.planetName.Trim().ToLower();
-            if (!quizDictionary.ContainsKey(key))
-                quizDictionary.Add(key, quiz);
-        }
     }
-
-    void ShowQuiz(string planetName)
-    {
-        planetName = planetName.Trim().ToLower();
-
-        if (!quizDictionary.ContainsKey(planetName))
-        {
-            Debug.LogWarning("No quiz found for planet: " + planetName);
-            return;
-        }
-
-        QuizData quiz = quizDictionary[planetName];
-        quizPanel.SetActive(true);
-        quizQuestion.text = quiz.question;
-        feedbackText.text = "";
-
-        for (int i = 0; i < answerButtons.Length; i++)
-        {
-            // Needed to capture button index
-            if (i < quiz.options.Length)
-            {
-                answerButtons[i].gameObject.SetActive(true);
-                answerButtons[i].GetComponentInChildren<TMP_Text>().text = quiz.options[i];
-                int index = i;
-                answerButtons[i].onClick.RemoveAllListeners();
-                answerButtons[i].onClick.AddListener(() => CheckAnswer(index, quiz.correctAnswerIndex));
-            }
-            else
-            {
-                answerButtons[i].gameObject.SetActive(false);
-            }
-        }
-    } 
-
-    void CheckAnswer(int selectedIndex, int correctIndex)
-    {
-        if (selectedIndex == correctIndex)
-        {
-            feedbackText.text = "Correct!";
-            feedbackText.color = Color.green;
-            StartCoroutine(HideQuizAfterDelay(2f));
-        }
-        else
-        {
-            feedbackText.text = "Try again!";
-            feedbackText.color = Color.red;
-        }
-    }
-
-
-IEnumerator HideQuizAfterDelay(float delay)
-{
-    yield return new WaitForSeconds(delay);
-    quizPanel.SetActive(false);
-}
-
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) // Left click or tap
@@ -170,15 +97,6 @@ IEnumerator HideQuizAfterDelay(float delay)
         if (infoPointer < currentPlanet.descriptions.Count)
         {
             infoBox.text = currentPlanet.descriptions[infoPointer];
-        }
-        else if (infoPointer == currentPlanet.descriptions.Count)
-        {
-            infoBox.text = "";
-            ShowQuiz(currentPlanet.name.Trim().ToLower());
-            if (NextButton != null)
-            NextButton.gameObject.SetActive(false); // Hide Next during quiz
-
-            return; 
         }
 
         // Play audio
