@@ -87,3 +87,13 @@ MonoBehaviour:
     m_SpecifySize: 0
     m_Name: Neptune
     m_Texture: {fileID: 2800000, guid: b04cd14c34e534d39ae7205d69a29012, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 4707654980005369291
+      m_GuidHigh: 17889225286230561212
+    m_SerializedTextureGuid:
+      m_GuidLow: 11865860267262068623
+      m_GuidHigh: 12483872750693389705
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: Okay
+    m_Texture: {fileID: 2800000, guid: 8893c78f010ba4ac891542d61fa03fad, type: 3}
