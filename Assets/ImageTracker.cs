@@ -6,6 +6,7 @@ using UnityEngine.XR.ARSubsystems;
 
 public class ImageTracker : MonoBehaviour
 {
+    
     public ARTrackedImageManager trackedImages;
     public GameObject[] ArPrefabs;
 
@@ -110,3 +111,4 @@ public class ImageTracker : MonoBehaviour
         }
     }
 }
+
