@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.917, y: 0, z: 0.73}
-  m_LocalScale: {x: 0.18966079, y: 0.18966079, z: 0.18966079}
+  m_LocalScale: {x: 0.0991357, y: 0.0991357, z: 0.0991357}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -125,3 +125,4 @@ MonoBehaviour:
   - jjjjjjj
   audioClips:
   - {fileID: 8300000, guid: 735b6c368ab7f458c8903d2bac9b3742, type: 3}
+  images: []
