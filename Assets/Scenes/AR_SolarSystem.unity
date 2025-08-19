@@ -1515,16 +1515,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf27d95c44fc422f9074a2561ec5898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackedImages: {fileID: 1523206353}
   ArPrefabs:
   - {fileID: 4249099562971906373, guid: 9071f53c9921548d6a5aaf4b88780744, type: 3}
   - {fileID: 381020507192068319, guid: 26035f5b42c8343589f96b0f8e8f98ea, type: 3}
   - {fileID: 6393225016337227397, guid: 0722b076127464831822fc5a3059b18f, type: 3}
   - {fileID: 8855519127102832957, guid: 396390f36ed984511a92e63497813104, type: 3}
   - {fileID: 8060681839146636781, guid: cc477eb2a43ea48b5ba66eb7143d4f5e, type: 3}
-  - {fileID: 9152765307356998024, guid: 2031b94e8545e465aa2344e515f1fbab, type: 3}
   - {fileID: 5608519044570725299, guid: 3706e44a0b80249018048f67672f5870, type: 3}
-  - {fileID: 89269538063817605, guid: 252d78c41bd9643a4aa1d20d413f2c60, type: 3}
+  - {fileID: 9152765307356998024, guid: 2031b94e8545e465aa2344e515f1fbab, type: 3}
 --- !u!4 &753696753
 Transform:
   m_ObjectHideFlags: 0

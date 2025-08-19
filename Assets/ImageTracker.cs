@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
@@ -6,43 +5,71 @@ using UnityEngine.XR.ARSubsystems;
 
 public class ImageTracker : MonoBehaviour
 {
-    
-    public ARTrackedImageManager trackedImages;
+    [Header("AR Prefabs")]
     public GameObject[] ArPrefabs;
 
+    private ARTrackedImageManager trackedImages;
     private List<GameObject> ARObjects = new List<GameObject>();
     private bool imageCurrentlyTracked = false;
+
     void Awake()
     {
-        if (trackedImages == null)
+        // Automatically find the ARTrackedImageManager in the scene
+        trackedImages = FindObjectOfType<ARTrackedImageManager>();
+
+        if (ArPrefabs != null)
         {
-            trackedImages = FindObjectOfType<ARTrackedImageManager>();
+            foreach (var prefab in ArPrefabs)
+            {
+                if (prefab != null)
+                    Debug.Log("Prefab Name:" + prefab.name);
+                else
+                    Debug.LogWarning("One of the ARPrefabs is missing in the Inspector!");
+            }
         }
+        else
+        {
+            Debug.LogWarning("AR Prefabs array is not assigned!");
+        }
+        if (trackedImages != null && trackedImages.referenceLibrary != null)
+        {
+            var referenceLibrary = trackedImages.referenceLibrary;
+            for (int i = 0; i < referenceLibrary.count; i++)
+            {
+                var image = referenceLibrary[i];
+                Debug.Log("Reference Image Name: " + image.name);
+             }
+            
+         }
     }
 
     void OnEnable()
     {
-        trackedImages.trackedImagesChanged += OnTrackedImagesChanged;
+        if (trackedImages != null)
+            trackedImages.trackedImagesChanged += OnTrackedImagesChanged;
     }
 
     void OnDisable()
     {
-        trackedImages.trackedImagesChanged -= OnTrackedImagesChanged;
+        if (trackedImages != null)
+            trackedImages.trackedImagesChanged -= OnTrackedImagesChanged;
     }
 
-    // Event Handler
     private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs)
     {
+        // Handle removed images
         foreach (var removedImage in eventArgs.removed)
-{
-    var objToRemove = ARObjects.Find(obj => obj.name == removedImage.referenceImage.name);
-    if (objToRemove != null)
-    {
-        ARObjects.Remove(objToRemove);
-        Destroy(objToRemove);
-    }
-}
+        {
+            var objToRemove = ARObjects.Find(obj => obj.name == removedImage.referenceImage.name);
+            if (objToRemove != null)
+            {
+                ARObjects.Remove(objToRemove);
+                Destroy(objToRemove);
+                Debug.Log("Removed AR object: " + removedImage.referenceImage.name);
+            }
+        }
 
+        // Handle added images
         foreach (var trackedImage in eventArgs.added)
         {
             Debug.Log("Detected image: " + trackedImage.referenceImage.name);
@@ -50,55 +77,60 @@ public class ImageTracker : MonoBehaviour
             {
                 if (trackedImage.referenceImage.name == arPrefab.name)
                 {
-                    // Check if already spawned to avoid duplication
                     if (!ARObjects.Exists(obj => obj.name == arPrefab.name))
                     {
                         var newPrefab = Instantiate(arPrefab, trackedImage.transform);
-                        newPrefab.name = arPrefab.name; // Ensure name is consistent
+                        newPrefab.name = arPrefab.name;
                         ARObjects.Add(newPrefab);
+                        Debug.Log("Instantiated AR object: " + arPrefab.name);
                     }
                 }
             }
         }
 
+        // Handle updated images
         foreach (var trackedImage in eventArgs.updated)
         {
             foreach (var gameObject in ARObjects)
             {
                 if (gameObject.name == trackedImage.referenceImage.name)
                 {
-                    gameObject.SetActive(trackedImage.trackingState == TrackingState.Tracking);
-                    if (trackedImage.trackingState == TrackingState.Tracking)
+                    // Keep object active if Tracking or Limited
+                    bool isVisible = trackedImage.trackingState != TrackingState.None;
+                    gameObject.SetActive(isVisible);
+
+                    switch (trackedImage.trackingState)
                     {
-                        Debug.Log($"Tracking:{trackedImage.referenceImage.name}");
-                    }
-                    else if (trackedImage.trackingState == TrackingState.Limited)
-                    {
-                        Debug.Log($"Limited Tracking: {trackedImage.referenceImage.name}");
-                    }
-                    else if (trackedImage.trackingState == TrackingState.None)
-                    {
-                        Debug.Log($"Lost Tracking:{trackedImage.referenceImage.name}");
+                        case TrackingState.Tracking:
+                            Debug.Log($"Tracking: {trackedImage.referenceImage.name}");
+                            break;
+                        case TrackingState.Limited:
+                            Debug.Log($"Limited Tracking: {trackedImage.referenceImage.name}");
+                            break;
+                        case TrackingState.None:
+                            Debug.Log($"Lost Tracking: {trackedImage.referenceImage.name}");
+                            break;
                     }
                 }
             }
         }
+
         CheckIfAnyImageIsTracked();
     }
+
     private void CheckIfAnyImageIsTracked()
     {
         bool anyTracked = false;
 
         foreach (var trackedImage in trackedImages.trackables)
         {
-            if (trackedImage.trackingState == TrackingState.Tracking)
+            if (trackedImage.trackingState != TrackingState.None) // Treat Limited as tracked
             {
                 anyTracked = true;
                 break;
             }
         }
 
-        // Only log when state changes
         if (anyTracked && !imageCurrentlyTracked)
         {
             Debug.Log("At least one image is being tracked.");
@@ -106,9 +138,8 @@ public class ImageTracker : MonoBehaviour
         }
         else if (!anyTracked && imageCurrentlyTracked)
         {
-            Debug.Log("Image Not Detected");
+            Debug.Log("No images are currently detected.");
             imageCurrentlyTracked = false;
         }
     }
 }
-
