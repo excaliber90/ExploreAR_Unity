@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AR_SolarSystem.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Quiz_Scene.unity
+    guid: 7aa7544d1997f40deb32961ca05c1f13
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: faf8a990a452e4141b1004d203eb377c, type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 6dc53d2edb84048e5a939cbd411e9918, type: 2}

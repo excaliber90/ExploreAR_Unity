@@ -27,7 +27,7 @@ public class QuizManager : MonoBehaviour
     private int currentQuestionIndex = 0;
     private int score = 0;
     private QuizData[] questionsPool;    // To keep track of remaining questions
-
+    
     void Start()
     {
         startPanel.SetActive(true);
@@ -150,7 +150,11 @@ public class QuizManager : MonoBehaviour
     // Called by Quit Button
     public void QuitQuiz()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Main_Menu");
+    }
+     public void Quit()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Quiz_Scene");
     }
 
     // Optional: Retry quiz button
