@@ -30,11 +30,18 @@ public class Main_Menu : MonoBehaviour
         else
             Debug.LogError("Scene 'AR_SolarSystem' not found in Build Settings!");
     }
+    public void OnQuizClicked()
+    {
+        if (Application.CanStreamedLevelBeLoaded("Quiz_Scene"))
+            SceneManager.LoadScene("Quiz_Scene");
+        else
+            Debug.LogError("Scene 'Quiz_Scene' not found in Build Settings!");
+    }
 
     public void OnProfileClicked()
     {
         profilePanel.SetActive(true);
-        searchPanel.SetActive(false); 
+        searchPanel.SetActive(false);
     }
 
     public void OnSearchClicked()
