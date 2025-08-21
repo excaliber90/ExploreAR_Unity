@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: NewQuizData
   m_EditorClassIdentifier: 
   planetName: Earth
-  question: 'Whihc
-
-'
+  question: What is the largest planet in our solar system?
   options:
-  - sd
-  - sd
-  - sd
-  correctAnswerIndex: 1
+  - Saturn
+  - Earth
+  - Jupiter
+  - Venus
+  correctAnswerIndex: 2

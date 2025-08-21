@@ -71,15 +71,25 @@ MonoBehaviour:
       m_GuidLow: 5085837519345869211
       m_GuidHigh: 691048508763495845
     m_SerializedTextureGuid:
-      m_GuidLow: 14177500788174214754
-      m_GuidHigh: 10861592133009085963
-    m_Size: {x: 0.59, y: 0.8745882}
+      m_GuidLow: 14189215214764895066
+      m_GuidHigh: 17612235444249717755
+    m_Size: {x: 0.59, y: 0.32036197}
     m_SpecifySize: 1
-    m_Name: Uno
-    m_Texture: {fileID: 2800000, guid: e9f1d66299d9c4c00b162f6f7f20bc96, type: 3}
+    m_Name: Saturn
+    m_Texture: {fileID: 0}
   - m_SerializedGuid:
-      m_GuidLow: 5611311030665073716
-      m_GuidHigh: 976245464376950161
+      m_GuidLow: 4707654980005369291
+      m_GuidHigh: 17889225286230561212
+    m_SerializedTextureGuid:
+      m_GuidLow: 3748781245499280427
+      m_GuidHigh: 1305674543474914841
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: Uranus
+    m_Texture: {fileID: 2800000, guid: 4ea18c2b58ae340619b6175c14b01e12, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5454654648346882466
+      m_GuidHigh: 6395966178690460313
     m_SerializedTextureGuid:
       m_GuidLow: 3806444271168180556
       m_GuidHigh: 1337747662746740634
@@ -87,13 +97,3 @@ MonoBehaviour:
     m_SpecifySize: 0
     m_Name: Neptune
     m_Texture: {fileID: 2800000, guid: b04cd14c34e534d39ae7205d69a29012, type: 3}
-  - m_SerializedGuid:
-      m_GuidLow: 4707654980005369291
-      m_GuidHigh: 17889225286230561212
-    m_SerializedTextureGuid:
-      m_GuidLow: 11865860267262068623
-      m_GuidHigh: 12483872750693389705
-    m_Size: {x: 0, y: 0}
-    m_SpecifySize: 0
-    m_Name: Okay
-    m_Texture: {fileID: 2800000, guid: 8893c78f010ba4ac891542d61fa03fad, type: 3}
