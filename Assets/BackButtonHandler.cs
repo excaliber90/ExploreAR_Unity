@@ -6,7 +6,7 @@ public class BackButtonHandler : MonoBehaviour
 {
     public void GoToMainMenu()
     {
-        // Optional: Stop AR Session so the camera stops
+
         ARSession arSession = FindObjectOfType<ARSession>();
         if (arSession != null)
             arSession.Reset(); // stops tracking and camera feed

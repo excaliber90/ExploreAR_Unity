@@ -124,7 +124,7 @@ public class ImageTracker : MonoBehaviour
 
         foreach (var trackedImage in trackedImages.trackables)
         {
-            if (trackedImage.trackingState != TrackingState.None) // Treat Limited as tracked
+            if (trackedImage.trackingState != TrackingState.None) // Treat Limited as 
             {
                 anyTracked = true;
                 break;
