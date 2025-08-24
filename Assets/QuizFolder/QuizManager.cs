@@ -97,6 +97,16 @@ public class QuizManager : MonoBehaviour
                 break;
             }
         }
+        if (currentPlanetModel != null)
+        {
+        Debug.Log($"Planet '{currentQuestion.planetName}' spawned successfully");
+        Debug.Log($"Planet position: {currentPlanetModel.transform.position}");
+        Debug.Log($"Planet active: {currentPlanetModel.activeInHierarchy}");
+    }
+    else
+    {
+    Debug.Log($"Failed to find prefab for planet: {currentQuestion.planetName}");
+    }
     }
 
     void OnOptionSelected(int chosenIndex)

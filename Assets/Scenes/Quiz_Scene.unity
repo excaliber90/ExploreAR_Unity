@@ -457,41 +457,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94259619}
   m_CullTransparentMesh: 1
---- !u!1 &118022927
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 118022928}
-  m_Layer: 5
-  m_Name: Planet3Dholder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &118022928
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 118022927}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 451194691}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -36, y: -291}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &451194690
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,7 +492,6 @@ RectTransform:
   - {fileID: 751655142}
   - {fileID: 490474302}
   - {fileID: 802551501}
-  - {fileID: 118022928}
   m_Father: {fileID: 1919166656}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1883,6 +1847,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009600564}
   m_CullTransparentMesh: 1
+--- !u!1 &1017722345
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1017722346}
+  m_Layer: 0
+  m_Name: Place3Dholder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1017722346
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017722345}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 608, y: 1421, z: -58}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1092159610
 GameObject:
   m_ObjectHideFlags: 0
@@ -2343,7 +2338,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 69.82363
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -2370,7 +2365,7 @@ Transform:
   m_GameObject: {fileID: 1407302685}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 567.5981, y: 1123.789, z: 23.245117}
+  m_LocalPosition: {x: 546, y: 1103, z: -949}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3052,7 +3047,7 @@ MonoBehaviour:
   quizQuestions:
   - {fileID: 11400000, guid: b5a505243b48a4ea4a127fd362086c27, type: 2}
   - {fileID: 11400000, guid: d3bb5651dc0564e569a4835b58545527, type: 2}
-  planet3DHolder: {fileID: 118022928}
+  planet3DHolder: {fileID: 1017722346}
   planetPrefabs:
   - {fileID: 782594445115467501, guid: 960f021137d9044008e83ed5babb459b, type: 3}
 --- !u!4 &1841110488
@@ -3317,3 +3312,4 @@ SceneRoots:
   - {fileID: 999126873}
   - {fileID: 1841110488}
   - {fileID: 1407302688}
+  - {fileID: 1017722346}
