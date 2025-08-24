@@ -157,7 +157,8 @@ public class QuizManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("Quiz_Scene");
     }
 
-    // Optional: Retry quiz button
+    // Retry Buttton
+    
     public void RetryQuiz()
     {
         StartQuiz();

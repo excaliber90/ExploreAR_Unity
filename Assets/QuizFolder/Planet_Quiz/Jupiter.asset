@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2065a654fed7a4ba5960ea9f72cd420c, type: 3}
-  m_Name: NewQuizData
+  m_Name: Jupiter
   m_EditorClassIdentifier: 
-  planetName: Earth
-  question: What is the largest planet in our solar system?
+  planetName: 
+  question: 
   options:
-  - Saturn
-  - Earth
-  - Jupiter
-  - Venus
-  correctAnswerIndex: 2
+  - 
+  - 
+  - 
+  correctAnswerIndex: 0
