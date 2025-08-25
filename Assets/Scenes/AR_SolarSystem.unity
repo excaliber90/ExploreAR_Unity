@@ -1521,8 +1521,10 @@ MonoBehaviour:
   - {fileID: 6393225016337227397, guid: 0722b076127464831822fc5a3059b18f, type: 3}
   - {fileID: 8855519127102832957, guid: 396390f36ed984511a92e63497813104, type: 3}
   - {fileID: 8060681839146636781, guid: cc477eb2a43ea48b5ba66eb7143d4f5e, type: 3}
+  - {fileID: 7465094291928667769, guid: adabde9c76d9248dd9bd5fa275615932, type: 3}
   - {fileID: 8153240466937224134, guid: 89c398d9a9e864bcc82f12041de6de0b, type: 3}
   - {fileID: 5608519044570725299, guid: 3706e44a0b80249018048f67672f5870, type: 3}
+  rotationSpeed: 20
 --- !u!4 &753696753
 Transform:
   m_ObjectHideFlags: 0

@@ -623,7 +623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c39bb24e2bd7a482ca08117fb44b8e44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Image: {fileID: 2800000, guid: e9f1d66299d9c4c00b162f6f7f20bc96, type: 3}
+  m_Image: {fileID: 2800000, guid: 65a12b5a380fc4eafb6b0cabd23a6bf4, type: 3}
   m_ImagePhysicalSizeMeters: {x: 1, y: 1}
 --- !u!1 &4983566038184885661
 GameObject:
@@ -1086,11 +1086,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CameraStartingPose:
-    position: {x: 2.6137247, y: 1, z: 0}
-    rotation: {x: -0.15782063, y: 0.4916275, z: -0.09111772, w: -0.8515237}
+    position: {x: 2.5, y: 1.0950003, z: -1.2}
+    rotation: {x: -0.15782067, y: 0.49162748, z: -0.091117635, w: -0.8515237}
   m_CameraMovementBounds:
-    m_Center: {x: 0.67936206, y: 0.545, z: 0.00000011920929}
-    m_Extent: {x: 1.9343626, y: 0.5500002, z: 1.2500005}
+    m_Center: {x: 0.44839764, y: 0.545, z: 0.00000011920929}
+    m_Extent: {x: 2.6001935, y: 0.5500002, z: 1.2500005}
   m_DefaultViewPose:
     position: {x: 0, y: 1.0609863, z: -1.5}
     rotation: {x: -0.16100603, y: 0.1567927, z: -0.025916385, w: -0.97407466}
