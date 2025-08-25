@@ -2,6 +2,17 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
+# ==== AR FOUNDATION EXCEPTIONS ====
+!/[Aa]ssets/XR/
+!/[Aa]ssets/XR/**
+!/[Aa]ssets/**/ReferenceImageLibrary.asset
+!/[Aa]ssets/**/ReferenceImageLibrary.asset.meta
+!/[Uu]ser[Ss]ettings/XRSettings.asset
+!/[Pp]roject[Ss]ettings/XRSettings.asset
+!/[Pp]ackages/manifest.json
+!/[Pp]ackages/packages-lock.json
+
+
 .utmp/
 /[Ll]ibrary/
 /[Tt]emp/
