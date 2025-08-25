@@ -41,12 +41,12 @@ MonoBehaviour:
       m_GuidLow: 5378634987015695875
       m_GuidHigh: 1338141977096335013
     m_SerializedTextureGuid:
-      m_GuidLow: 12976870274476925308
-      m_GuidHigh: 6620724520256927994
+      m_GuidLow: 3793925101840401371
+      m_GuidHigh: 701400291756716698
     m_Size: {x: 0.189, y: 0.189}
     m_SpecifySize: 1
     m_Name: Earth
-    m_Texture: {fileID: 2800000, guid: 9e85e17c1ac2b417faf8a181df89e15b, type: 3}
+    m_Texture: {fileID: 2800000, guid: 6fa283dbbac734a69ab28363d9dfbb09, type: 3}
   - m_SerializedGuid:
       m_GuidLow: 5606346130320180002
       m_GuidHigh: 16765106408182609046
@@ -76,7 +76,7 @@ MonoBehaviour:
     m_Size: {x: 0.59, y: 0.32036197}
     m_SpecifySize: 1
     m_Name: Saturn
-    m_Texture: {fileID: 0}
+    m_Texture: {fileID: 2800000, guid: 65a12b5a380fc4eafb6b0cabd23a6bf4, type: 3}
   - m_SerializedGuid:
       m_GuidLow: 4707654980005369291
       m_GuidHigh: 17889225286230561212
