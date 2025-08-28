@@ -23,6 +23,8 @@ public class Main_Menu : MonoBehaviour
             profileUserEmail_Text.text = PlayerPrefs.GetString(EMAIL_KEY, "No Email");
     }
 
+    //If the scene is not in the build setting scene then this will send the message 
+
     public void OnSolarSystemClicked()
     {
         if (Application.CanStreamedLevelBeLoaded("AR_SolarSystem"))
