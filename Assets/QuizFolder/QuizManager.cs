@@ -19,7 +19,7 @@ public class QuizManager : MonoBehaviour
     public Transform planet3DHolder;     // Empty object to spawn planets above question
 
     [Header("Planet Prefabs")]
-    public GameObject[] planetPrefabs;   // Assign 3D planet prefabs (name must match planetName)
+    public GameObject[] planetPrefabs;   
 
     private QuizData currentQuestion;
     private GameObject currentPlanetModel;
@@ -39,7 +39,6 @@ public class QuizManager : MonoBehaviour
         quizQuestions.CopyTo(questionsPool, 0);
     }
 
-    // Called by Start Button
     public void StartQuiz()
     {
         startPanel.SetActive(false);
