@@ -11,7 +11,6 @@ public class BackButtonHandler : MonoBehaviour
         if (arSession != null)
             arSession.Reset(); // stops tracking and camera feed
 
-        // Load Main Menu
         SceneManager.LoadScene("MainMenu");
     }
 }
