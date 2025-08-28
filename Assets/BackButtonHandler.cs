@@ -4,6 +4,7 @@ using UnityEngine.XR.ARFoundation;
 
 public class BackButtonHandler : MonoBehaviour
 {
+    // This button will redirect me to the Main Menu
     public void GoToMainMenu()
     {
 
