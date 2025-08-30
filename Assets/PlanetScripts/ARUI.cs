@@ -12,7 +12,6 @@ public class ARUI : MonoBehaviour
     public Button GetbackButton;
     public Button NextButton;
 
-    
 
     private AudioSource audio;
     private PlanetInfo currentPlanet;
