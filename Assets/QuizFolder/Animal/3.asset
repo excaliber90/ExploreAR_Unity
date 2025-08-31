@@ -9,9 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2f528b98f844ed8b6b2d5fdf90b40e6, type: 3}
-  m_Name: XRSimulationPreferences
+  m_Script: {fileID: 11500000, guid: 2065a654fed7a4ba5960ea9f72cd420c, type: 3}
+  m_Name: 3
   m_EditorClassIdentifier: 
-  m_EnvironmentPrefab: {fileID: 7576867131100388943, guid: 0b761518a490542cd83b7454c73f9a0f, type: 3}
-  m_FallbackEnvironmentPrefab: {fileID: 0}
-  m_EnableNavigation: 1
+  planetName: Koala
+  question: Which of this animals is a marsupial?
+  options:
+  - Koala
+  - Lion
+  - Camel
+  - Crocodile
+  correctAnswerIndex: 0
