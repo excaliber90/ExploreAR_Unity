@@ -753,7 +753,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 490474304}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &490474304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1530,7 +1542,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 802551503}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &802551503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2311,7 +2335,7 @@ MonoBehaviour:
   startPanel: {fileID: 1009600564}
   quizPanel: {fileID: 451194690}
   resultPanel: {fileID: 48106901}
-  questionText: {fileID: 0}
+  questionText: {fileID: 1554570820}
   optionButtons:
   - {fileID: 94259621}
   - {fileID: 751655143}
@@ -2878,8 +2902,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1841110487}
-        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+      - m_Target: {fileID: 1373392962}
+        m_TargetAssemblyTypeName: Aimal_Quiz, Assembly-CSharp
         m_MethodName: StartQuiz
         m_Mode: 1
         m_Arguments:
