@@ -2279,6 +2279,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1174309811}
   m_CullTransparentMesh: 1
+--- !u!1 &1373392961
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1373392963}
+  - component: {fileID: 1373392962}
+  m_Layer: 0
+  m_Name: Animal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1373392962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373392961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 365bc02c7555f4273b956e0e2100f061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPanel: {fileID: 1009600564}
+  quizPanel: {fileID: 451194690}
+  resultPanel: {fileID: 48106901}
+  questionText: {fileID: 0}
+  optionButtons:
+  - {fileID: 94259621}
+  - {fileID: 751655143}
+  - {fileID: 490474303}
+  - {fileID: 802551502}
+  feedbackText: {fileID: 464871139}
+  quizQuestions:
+  - {fileID: 11400000, guid: daba596c7cfd949558356635e1ce12a2, type: 2}
+  - {fileID: 11400000, guid: a569b832ab9cd4f18b31916d71108448, type: 2}
+  - {fileID: 11400000, guid: c3963a3f548504fbbb446cf77dc88b49, type: 2}
+  - {fileID: 11400000, guid: 5f729d30d675a4f999e06fc86d4c281d, type: 2}
+  - {fileID: 11400000, guid: 1af96543698204977af834c2b1a56fe5, type: 2}
+--- !u!4 &1373392963
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373392961}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 754.10876, y: 1492.6915, z: -2.93042}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1407302685
 GameObject:
   m_ObjectHideFlags: 0
@@ -3451,3 +3511,4 @@ SceneRoots:
   - {fileID: 1841110488}
   - {fileID: 1407302688}
   - {fileID: 1017722346}
+  - {fileID: 1373392963}

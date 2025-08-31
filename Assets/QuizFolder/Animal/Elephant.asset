@@ -9,14 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2065a654fed7a4ba5960ea9f72cd420c, type: 3}
-  m_Name: 1
+  m_Script: {fileID: 11500000, guid: cfde102f371a24b4aa0aec75af7b9cc8, type: 3}
+  m_Name: Elephant
   m_EditorClassIdentifier: 
-  planetName: Lion
-  question: What is a group of lions called?
+  animalName: Elephant
+  question: 'Which is the largest land animal?
+
+'
   options:
-  - Herd
-  - Pack
-  - Pride
-  - Colony
+  - Hippopotamus
+  - Giraffe
+  - Elephant
+  - Rhinoceros
   correctAnswerIndex: 2
