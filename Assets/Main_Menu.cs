@@ -32,6 +32,13 @@ public class Main_Menu : MonoBehaviour
         else
             Debug.LogError("Scene 'AR_SolarSystem' not found in Build Settings!");
     }
+    public void OnAnimalSceneClicked()
+    {
+        if (Application.CanStreamedLevelBeLoaded("Animal_Kingdom"))
+            SceneManager.LoadScene("Animal_Kingdom");
+        else
+        Debug.LogError("Scene 'Animal_Kingdom' not found in teh build setting");
+    }
     public void OnQuizClicked()
     {
         if (Application.CanStreamedLevelBeLoaded("Quiz_Scene"))
