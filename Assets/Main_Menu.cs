@@ -28,14 +28,14 @@ public class Main_Menu : MonoBehaviour
     public void OnSolarSystemClicked()
     {
         if (Application.CanStreamedLevelBeLoaded("AR_SolarSystem"))
-            SceneManager.LoadScene("AR_SolarSystem");
+            SceneManager.LoadScene("Two_Panel");
         else
             Debug.LogError("Scene 'AR_SolarSystem' not found in Build Settings!");
     }
     public void OnAnimalSceneClicked()
     {
         if (Application.CanStreamedLevelBeLoaded("Animal_Kingdom"))
-            SceneManager.LoadScene("Animal_Kingdom");
+            SceneManager.LoadScene("Two_Panel");
         else
         Debug.LogError("Scene 'Animal_Kingdom' not found in teh build setting");
     }
@@ -46,7 +46,7 @@ public class Main_Menu : MonoBehaviour
         else
             Debug.LogError("Scene 'Quiz_Scene' not found in Build Settings!");
     }
-
+  
     public void OnProfileClicked()
     {
         profilePanel.SetActive(true);
