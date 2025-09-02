@@ -1,17 +1,32 @@
 using UnityEngine;
+using TMPro;  // Only if you use TMP for info panel text
 
 [System.Serializable]
 public class ImagePrefabMapping
 {
     public string imageName;    // Name of the reference image (without extension)
     public GameObject prefab;   // Prefab to spawn
+    public string title;        // Optional: Title
+    public string description;  // Optional: Description
 }
 
 public class GalleryHandler : MonoBehaviour
 {
-    public ImagePrefabMapping[] mappings;  // Set in Inspector
-    public Transform spawnPoint;           // Where the prefab will appear
+    [Header("Prefabs")]
+    public ImagePrefabMapping[] mappings;
 
+    [Header("UI Elements")]
+    public GameObject optionPanel;       // Panel with Gallery/Camera buttons
+    public GameObject infoPanel;         // Panel to show prefab info
+    public TMP_Text titleText;
+    public TMP_Text descriptionText;
+
+    [Header("Spawn Settings")]
+    public Camera sceneCamera;           // Assign your manually added camera here
+    public float spawnDistance = 2f;     // Distance in front of the camera
+    public Vector3 prefabScale = Vector3.one;
+
+    // ================== Open Gallery ==================
     public void OpenGallery()
     {
         NativeGallery.GetImageFromGallery((path) =>
@@ -20,18 +35,64 @@ public class GalleryHandler : MonoBehaviour
             {
                 string fileName = System.IO.Path.GetFileNameWithoutExtension(path);
 
-                foreach (var map in mappings)
-                {
-                    if (map.imageName == fileName)
-                    {
-                        Instantiate(map.prefab, spawnPoint.position, Quaternion.identity);
-                        Debug.Log("Prefab spawned for: " + fileName);
-                        return;
-                    }
-                }
+                // Spawn prefab in front of assigned camera
+                SpawnPrefab(fileName);
 
-                Debug.Log("No prefab found for: " + fileName);
+                // Hide the option panel
+                if (optionPanel != null)
+                    optionPanel.SetActive(false);
             }
         }, "Select an image", "image/*");
+    }
+
+    // ================== Camera Button Placeholder ==================
+    public void OpenCamera()
+    {
+        Debug.Log("Camera button clicked. Implement later if needed.");
+    }
+
+    // ================== Core Spawning ==================
+    private void SpawnPrefab(string imageName)
+    {
+        foreach (var map in mappings)
+        {
+            if (map.imageName == imageName)
+            {
+                if (sceneCamera == null)
+                {
+                    Debug.LogWarning("Scene camera not assigned!");
+                    return;
+                }
+
+                // Spawn in front of the assigned camera
+                Vector3 spawnPos = sceneCamera.transform.position + sceneCamera.transform.forward * spawnDistance;
+                GameObject obj = Instantiate(map.prefab, spawnPos, Quaternion.identity);
+
+                // Scale and rotate to face camera
+                obj.transform.localScale = prefabScale;
+                obj.transform.LookAt(sceneCamera.transform);
+                obj.transform.Rotate(0, 180, 0);
+
+                // Show info panel
+                if (infoPanel != null)
+                {
+                    infoPanel.SetActive(true);
+                    if (titleText != null) titleText.text = map.title;
+                    if (descriptionText != null) descriptionText.text = map.description;
+                }
+
+                Debug.Log("Prefab spawned for: " + imageName);
+                return;
+            }
+        }
+
+        Debug.LogWarning("No prefab found for: " + imageName);
+    }
+
+    // ================== Editor Testing ==================
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) SpawnPrefab("Earth");
+        if (Input.GetKeyDown(KeyCode.Alpha2)) SpawnPrefab("Mars");
     }
 }

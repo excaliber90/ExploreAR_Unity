@@ -13,6 +13,7 @@ public class Main_Menu : MonoBehaviour
 
     private const string USERNAME_KEY = "username";
     private const string EMAIL_KEY = "email";
+    private const string NEXT_AR_SCENE_KEY = "NextARScene"; 
 
     void Start()
     {
@@ -25,19 +26,17 @@ public class Main_Menu : MonoBehaviour
 
     //If the scene is not in the build setting scene then this will send the message 
 
+    public void OnAnimalClicked()
+    {
+        
+       /* Debug.Log("Solar System button clicked!");
+        SceneManager.LoadScene("Two_Panel");*/
+    }
     public void OnSolarSystemClicked()
     {
-        if (Application.CanStreamedLevelBeLoaded("AR_SolarSystem"))
-            SceneManager.LoadScene("Two_Panel");
-        else
-            Debug.LogError("Scene 'AR_SolarSystem' not found in Build Settings!");
-    }
-    public void OnAnimalSceneClicked()
-    {
-        if (Application.CanStreamedLevelBeLoaded("Animal_Kingdom"))
-            SceneManager.LoadScene("Two_Panel");
-        else
-        Debug.LogError("Scene 'Animal_Kingdom' not found in teh build setting");
+        Debug.Log("Solar System button clicked!");
+        PlayerPrefs.SetString(NEXT_AR_SCENE_KEY, "AR_SolarSystem");
+        SceneManager.LoadScene("AR_SolarSystem");
     }
     public void OnQuizClicked()
     {
@@ -46,7 +45,7 @@ public class Main_Menu : MonoBehaviour
         else
             Debug.LogError("Scene 'Quiz_Scene' not found in Build Settings!");
     }
-  
+
     public void OnProfileClicked()
     {
         profilePanel.SetActive(true);
