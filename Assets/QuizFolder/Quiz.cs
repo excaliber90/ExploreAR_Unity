@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Add the quiz data that contains the question and the answer 
+
 
 [CreateAssetMenu(fileName = "NewAnimalQuizData", menuName = "AR Quiz/QuizData")]
 public class QuizData : ScriptableObject
