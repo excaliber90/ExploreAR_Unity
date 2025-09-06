@@ -13,7 +13,7 @@ public class Main_Menu : MonoBehaviour
 
     private const string USERNAME_KEY = "username";
     private const string EMAIL_KEY = "email";
-    private const string NEXT_AR_SCENE_KEY = "NextARScene"; 
+    private const string NEXT_AR_SCENE_KEY = "NextARScene";
 
     void Start()
     {
@@ -28,9 +28,10 @@ public class Main_Menu : MonoBehaviour
 
     public void OnAnimalClicked()
     {
-        
-       /* Debug.Log("Solar System button clicked!");
-        SceneManager.LoadScene("Two_Panel");*/
+
+        Debug.Log("Animal_Kingdom button clicked!");
+        PlayerPrefs.SetString(NEXT_AR_SCENE_KEY, "Animal_Kingdom");
+        SceneManager.LoadScene("Two_Panel");
     }
     public void OnSolarSystemClicked()
     {
@@ -71,5 +72,10 @@ public class Main_Menu : MonoBehaviour
         PlayerPrefs.DeleteKey(EMAIL_KEY);
         Debug.Log("User logged out.");
         SceneManager.LoadScene("Login");
+    }
+    public void Onback()
+    {
+        Debug.Log("You are redirected to the main menu.");
+        SceneManager.LoadScene("Main_Menu");
     }
 }
