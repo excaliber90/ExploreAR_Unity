@@ -44,14 +44,31 @@ public class GalleryHandler : MonoBehaviour
             }
         }, "Select an image", "image/*");
     }
-
-    // ================== Camera Button Placeholder ==================
+/*
     public void OpenCamera()
     {
+        
         Debug.Log("Camera button clicked. Implement later if needed.");
     }
+*/  
+    public void OpenCamera()
+{
+    NativeCamera.TakePicture((path) =>
+    {
+        if (path != null)
+        {
+            string fileName = System.IO.Path.GetFileNameWithoutExtension(path);
 
-    // ================== Core Spawning ==================
+            // Spawn prefab in front of assigned camera
+            SpawnPrefab(fileName);
+
+            // Hide the option panel
+            if (optionPanel != null)
+                optionPanel.SetActive(false);
+        }
+    }, maxSize: 1024);
+}
+
     private void SpawnPrefab(string imageName)
     {
         foreach (var map in mappings)
@@ -59,10 +76,10 @@ public class GalleryHandler : MonoBehaviour
             if (map.imageName == imageName)
             {
                 if (sceneCamera == null)
-                {
-                    Debug.LogWarning("Scene camera not assigned!");
-                    return;
-                }
+     {
+        Debug.LogWarning("Scene camera not assigned!");
+         return;
+    }
 
                 // Spawn in front of the assigned camera
                 Vector3 spawnPos = sceneCamera.transform.position + sceneCamera.transform.forward * spawnDistance;
