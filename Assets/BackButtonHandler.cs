@@ -10,7 +10,7 @@ public class BackButtonHandler : MonoBehaviour
 
         ARSession arSession = FindObjectOfType<ARSession>();
         if (arSession != null)
-            arSession.Reset(); // stops tracking and camera feed
+            arSession.Reset(); 
 
         SceneManager.LoadScene("MainMenu");
     }
