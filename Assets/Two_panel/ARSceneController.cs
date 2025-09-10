@@ -3,9 +3,9 @@ using System.Collections;
 
 public class ARSceneController : MonoBehaviour
 {
-    public GameObject optionPanel;       // The panel containing the two buttons
-    public GameObject ARCamera;          // Your AR camera / ARSessionOrigin object
-    public GalleryHandler galleryHandler; // Assign your existing GalleryHandler
+    public GameObject optionPanel;       
+    public GameObject ARCamera;          
+    public GalleryHandler galleryHandler; 
 
     void Start()
     {
