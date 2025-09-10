@@ -525,8 +525,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Controller, Assembly-CSharp
+      - m_Target: {fileID: 892614808}
+        m_TargetAssemblyTypeName: Admin, Assembly-CSharp
         m_MethodName: OpenloginPanel
         m_Mode: 1
         m_Arguments:
@@ -1269,8 +1269,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Controller, Assembly-CSharp
+      - m_Target: {fileID: 892614808}
+        m_TargetAssemblyTypeName: Admin, Assembly-CSharp
         m_MethodName: OpenloginPanel
         m_Mode: 1
         m_Arguments:
@@ -1691,8 +1691,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Controller, Assembly-CSharp
+      - m_Target: {fileID: 892614808}
+        m_TargetAssemblyTypeName: Admin, Assembly-CSharp
         m_MethodName: Closenotification
         m_Mode: 1
         m_Arguments:
@@ -2039,8 +2039,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Controller, Assembly-CSharp
+      - m_Target: {fileID: 892614808}
+        m_TargetAssemblyTypeName: Admin, Assembly-CSharp
         m_MethodName: signUpUser
         m_Mode: 1
         m_Arguments:
@@ -2172,8 +2172,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Controller, Assembly-CSharp
+      - m_Target: {fileID: 892614808}
+        m_TargetAssemblyTypeName: Admin, Assembly-CSharp
         m_MethodName: LoginUser
         m_Mode: 1
         m_Arguments:
@@ -5979,9 +5979,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Controller, Assembly-CSharp
-        m_MethodName: OpenForgetpasswordPanel
+      - m_Target: {fileID: 892614808}
+        m_TargetAssemblyTypeName: Admin, Assembly-CSharp
+        m_MethodName: forgetPassword
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6112,8 +6112,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Controller, Assembly-CSharp
+      - m_Target: {fileID: 892614808}
+        m_TargetAssemblyTypeName: Admin, Assembly-CSharp
         m_MethodName: OpenSignUpPanel
         m_Mode: 1
         m_Arguments:
@@ -8963,8 +8963,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Controller, Assembly-CSharp
+      - m_Target: {fileID: 892614808}
+        m_TargetAssemblyTypeName: Admin, Assembly-CSharp
         m_MethodName: forgetPassword
         m_Mode: 1
         m_Arguments:
