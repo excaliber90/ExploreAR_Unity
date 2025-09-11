@@ -8,11 +8,11 @@ using UnityEngine.UI;
 public class ARUI_Gallery : MonoBehaviour
 {
     [Header("UI References")]
-    public Canvas infoCanvas;           // Info panel canvas
-    public TMP_Text infoBox;            // Description text
+    public Canvas infoCanvas;           
+    public TMP_Text infoBox;            
     public Button GetbackButton;
     public Button NextButton;
-    public GameObject OptionPanel;      // Panel with Camera & Open Gallery buttons
+    public GameObject OptionPanel;      
 
     private AudioSource audioSource;
     private PlanetInfo currentPrefabInfo;

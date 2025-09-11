@@ -4,10 +4,10 @@ using TMPro;  // Only if you use TMP for info panel text
 [System.Serializable]
 public class ImagePrefabMapping
 {
-    public string imageName;    // Name of the reference image (without extension)
-    public GameObject prefab;   // Prefab to spawn
-    public string title;        // Optional: Title
-    public string description;  // Optional: Description
+    public string imageName;    
+    public GameObject prefab;   
+    public string title;        
+    public string description;  
 }
 
 public class GalleryHandler : MonoBehaviour
