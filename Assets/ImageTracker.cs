@@ -207,12 +207,10 @@ public class ImageTracker : MonoBehaviour
 
     void Update()
     {
-        // Simple rotation for all active AR objects (same as QuizManager approach)
         foreach (var arObject in ARObjects)
         {
             if (arObject != null && arObject.activeInHierarchy)
             {
-                // Simple rotation like in QuizManager
                 arObject.transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
             }
         }
