@@ -5,7 +5,7 @@ public class TwoPanelManager : MonoBehaviour
 {
    private const string NEXT_AR_SCENE_KEY = "NextARScene";  
 
-    // Called when "Camera" button is clicked
+
     public void OnCameraClicked()
     {
         string nextScene = PlayerPrefs.GetString(NEXT_AR_SCENE_KEY, "");

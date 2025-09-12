@@ -218,7 +218,7 @@ public class ImageTracker : MonoBehaviour
 
     private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs)
     {
-        // Handle removed images
+
         foreach (var removedImage in eventArgs.removed)
         {
             var objToRemove = ARObjects.Find(obj => obj.name == removedImage.referenceImage.name);
