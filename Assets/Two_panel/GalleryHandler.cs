@@ -16,14 +16,14 @@ public class GalleryHandler : MonoBehaviour
     public ImagePrefabMapping[] mappings;
 
     [Header("UI Elements")]
-    public GameObject optionPanel;       // Panel with Gallery/Camera buttons
-    public GameObject infoPanel;         // Panel to show prefab info
+    public GameObject optionPanel;       
+    public GameObject infoPanel;         
     public TMP_Text titleText;
     public TMP_Text descriptionText;
 
     [Header("Spawn Settings")]
     public Camera sceneCamera;           // Assign your manually added camera here
-    public float spawnDistance = 2f;     // Distance in front of the camera
+    public float spawnDistance = 2f;     
     public Vector3 prefabScale = Vector3.one;
 
     // ================== Open Gallery ==================
