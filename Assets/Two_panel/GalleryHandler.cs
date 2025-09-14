@@ -22,7 +22,7 @@ public class GalleryHandler : MonoBehaviour
     public TMP_Text descriptionText;
 
     [Header("Spawn Settings")]
-    public Camera sceneCamera;           // Assign your manually added camera here
+    public Camera sceneCamera;           
     public float spawnDistance = 2f;     
     public Vector3 prefabScale = Vector3.one;
 
