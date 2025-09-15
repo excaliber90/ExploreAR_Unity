@@ -23,8 +23,8 @@ public class ARUI_Gallery : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        infoCanvas.enabled = false;      // Hide info panel at start
-        OptionPanel.SetActive(true);     // Show option buttons
+        infoCanvas.enabled = false;      
+        OptionPanel.SetActive(true);     
     }
 
     /// <summary>
