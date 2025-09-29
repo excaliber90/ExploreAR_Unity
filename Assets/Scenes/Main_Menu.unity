@@ -1687,7 +1687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a92b4c0c983744829c26422da455c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  searchPanel: {fileID: 0}
+  searchPanel: {fileID: 558008462}
   profilePanel: {fileID: 1177392887}
   profileUserName_Text: {fileID: 87864772}
   profileUserEmail_Text: {fileID: 628203385}
